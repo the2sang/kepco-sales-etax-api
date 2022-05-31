@@ -1,10 +1,7 @@
 package com.kepco.etax.api.domain.entity;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.*;
 import lombok.*;
 
 @Getter
@@ -14,21 +11,31 @@ import lombok.*;
 @IdClass(IfTaxBillItemListKey.class)
 public class IfTaxBillItemListEntity {
 
-    @Id
-    @Column(name = "REL_SYSTEM_ID")
-    private String relSystemId;
-
-    @Id
-    @Column(name = "JOB_GUB_CODE")
-    private String jobGubCode;
-
-    @Id
-    @Column(name = "MANAGE_ID")
-    private String manageId;
+    //    @Id
+    //    @Column(name = "REL_SYSTEM_ID")
+    //    private String relSystemId;
+    //
+    //    @Id
+    //    @Column(name = "JOB_GUB_CODE")
+    //    private String jobGubCode;
+    //
+    //    @Id
+    //    @Column(name = "MANAGE_ID")
+    //    private String manageId;
 
     @Id
     @Column(name = "SEQ_NO")
     private long seqNo;
+
+    @ManyToOne
+    @JoinColumns(
+        {
+            @JoinColumn(name = "REL_SYSTEM_ID", referencedColumnName = "REL_SYSTEM_ID"),
+            @JoinColumn(name = "JOB_GUB_CODE", referencedColumnName = "JOB_GUB_CODE"),
+            @JoinColumn(name = "MANAGE_ID", referencedColumnName = "MANAGE_ID"),
+        }
+    )
+    private IfTaxBillInfoEntity ifTaxBillInfoEntity;
 
     @Column(name = "PURCHASE_DAY")
     private String purchaseDay;
