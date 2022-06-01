@@ -1,17 +1,17 @@
 package com.kepco.etax.api.domain.entity;
 
 import java.sql.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.*;
+
 import lombok.*;
 
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @IdClass(IfTaxBillInfoKey.class)
+@Table(name = "IF_TAX_BILL_INFO")
 public class IfTaxBillInfoEntity {
 
     @Id

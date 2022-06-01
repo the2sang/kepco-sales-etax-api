@@ -6,9 +6,11 @@ import lombok.*;
 
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @IdClass(IfTaxBillItemListKey.class)
+@Table(name = "IF_TAX_BILL_ITEM_LIST")
 public class IfTaxBillItemListEntity {
 
     //    @Id
